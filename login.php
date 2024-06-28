@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="img/logo.jpg">
+    <title>Login | MyRT Cash Manager</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
+</head>
+<body>
+    <div class="vh-100 vw-100 d-flex align-items-center justify-content-center">
+        <div class="w-50 h-100">
+            <img src="img/rtnew.png" class="img-fluid h-100">
+        </div>
+        <div class="w-50 h-100 p-5 d-flex flex-column justify-content-center align-items-center">
+            <div class="w-75 border rounded-4 shadow">
+                <h3 class="p-3 m-0 rounded-top-4 text-center" style="background: #73c2fb">
+                MyRT
+                </h3>
+                <div class="p-3">
+                    <form >
+                        <div class="mb-3">
+                            <label for="identifier" class="form-label">Username</label>
+                            <input type="identifier" class="form-control" id="identifier" name="identifier" >
+                        </div>
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Kata Sandi</label>
+                            <input type="password" class="form-control" id="password" name="password" class="password" >
+                        </div>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="rememberme" name="rememberme">
+                            <label class="form-check-label" for="rememberme">Ingat saya</label>
+                        </div>
+                            <button type="submit" class="btn btn-primary">Login </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+		<script>
+
+			const form = document.querySelector('form');
+
+			form.addEventListener('submit', (event) => {
+
+				event.preventDefault();
+
+				const identifier = document.querySelector('#identifier').value;
+				const password = document.querySelector('#password').value;
+				const rememberme = document.querySelector('#rememberme').checked;
+
+				const data = {
+					username: identifier,
+					password,
+					rememberme
+				}
+
+				fetch('http://localhost:3000/login', {
+					method: 'POST',
+					headers: {
+						'Content-Type': 'application/json'
+					},
+					body: JSON.stringify(data)
+				})
+				.then(response => response.json())
+				.then(response => {
+					if (response.status === 'success') {
+						localStorage.setItem('login', true);
+						localStorage.setItem('username', response.data.username);
+						localStorage.setItem('role', response.data.role);
+						localStorage.setItem('id', response.data.id);
+
+						if(response.data.role !== 'admin') {
+							window.location.href = 'dashboard';
+						} else {
+							window.location.href = 'dashboardAdmin';
+						}
+					} else {
+						swal('Error', response.message, 'error');
+					}
+				})
+		});
+
+		</script>
+</body>
+</html>
+

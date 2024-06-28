@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "table2excel": "^1.0.4"
+  }
+}

@@ -1,0 +1,367 @@
+{
+	"info": {
+		"_postman_id": "18c8cda9-c8ca-498c-811f-7449dc24c4cc",
+		"name": "backend-keuangan",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "6769748"
+	},
+	"item": [
+		{
+			"name": "kategori",
+			"item": [
+				{
+					"name": "get kategori",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/kategori",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"kategori"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add kategori",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"namaKategori\": \"Mendadak\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/tambah-kategori",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"tambah-kategori"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "edit kategori",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"namaKategori\": \"Menda\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/edit-data/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"edit-data",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete kategori",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id_kategori\": 3\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/hapus-kategori",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"hapus-kategori"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "pengeluaran",
+			"item": [
+				{
+					"name": "get pengeluaran",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/pengeluaran/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"pengeluaran",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add pengeluaran",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"tanggal\": \"2024-06-22\", \r\n    \"deskripsi\": \"tes\", \r\n    \"id_kategori\": \"1\", \r\n    \"jumlah\": 120000, \r\n    \"id_user\": 3\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/tambah-pengeluaran",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"tambah-pengeluaran"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "edit pengeluaran",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"tanggal\": \"2024-06-22\", \r\n    \"deskripsi\": \"tes\", \r\n    \"id_kategori\": \"1\", \r\n    \"jumlah\": 110000, \r\n    \"id_user\": 3\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/edit-pengeluaran/8",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"edit-pengeluaran",
+								"8"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete pengeluaran",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id_pengeluaran\": 8\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/hapus-pengeluaran",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"hapus-pengeluaran"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "pemasukan",
+			"item": [
+				{
+					"name": "get pemasukan",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/pemasukan/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"pemasukan",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add pemasukan",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"tanggal\": \"2024-06-22\", \r\n    \"deskripsi\": \"tes\", \r\n    \"id_kategori\": \"1\", \r\n    \"jumlah\": 120000, \r\n    \"id_user\": 3\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/tambah-pemasukan",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"tambah-pemasukan"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "edit pemasukan",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"tanggal\": \"2024-06-22\", \r\n    \"deskripsi\": \"tes\", \r\n    \"id_kategori\": \"1\", \r\n    \"jumlah\": 100000, \r\n    \"id_user\": 3\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/edit-pemasukan/6",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"edit-pemasukan",
+								"6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete pemasukan",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id_pengeluaran\": 8\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/hapus-pemasukan",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"hapus-pemasukan"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"admin\", \r\n    \"password\": \"admin\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
